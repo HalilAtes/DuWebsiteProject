@@ -63,4 +63,6 @@
     <None Include="wwwroot\RegisterTemp\.sass-cache\f8f0098c6d87e34d84a0704fb71588a6cc87b962\responsive.scssc" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
 </Project>
