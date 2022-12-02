@@ -1,0 +1,98 @@
+﻿@*@model DuWebsite1.Models.ViewModels.DuyuruListViewModel*@
+
+
+@model IQueryable<Duyuru>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<div>
+        <h3>@p.DuyuruAdi</h3>
+        @p.Aciklama
+    </div>*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="~/assets/css/benimcss.css" rel="stylesheet" />
+    <link href="~/btnTemp/BtnTemp.css" rel="stylesheet" />
+</head>
+
+<bodyx>
+
+    <div class="sinif-ortalama">
+
+        <div class="row">
+            <div class="col-md-10">
+
+                <div class="list-group">
+                    @foreach (var p in Model)
+                    {
+                        <a class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+
+                                <h5 class="mb-1">@p.DuyuruAdi</h5>
+                                <small>@p.YayinTarihi</small>
+
+                            </div>
+                            &nbsp;
+                            <p class="mb-1">
+                                >
+                                @*@if (p.Aciklama == null)
+                            {
+                                @p.Aciklama
+                            }*@
+                                @if (p.Aciklama.Length > 50)
+                                {
+                                    @(p.Aciklama.Substring(0,350) + " ...") }
+                                else
+                                {
+                                    @p.Aciklama
+                                }
+
+                            </p>
+                            &nbsp;
+
+                            @*<div class="col-md-4">*@
+                            <a class="btn bi-fast-forward-btn-fill" href="/Duyuru/DuyuruDetay/@p.DuyuruId" role="button">Detay</a>
+
+                            @*</div>*@
+
+                            @*<a href="/Duyuru/DuyuruDetay/@p.DuyuruId" class="btn btn-primary" role="button" data-bs-toggle="button">Detay</a>*@
+
+                        </a>
+                        <hr />
+                    }
+
+                </div>
+
+            </div>
+            <div class="col-md-2">
+
+                <div class="containerx">
+                    <div class="btn"><a href="/Admin">Düzenle</a></div>@* 1 *@
+                </div>
+            </div>
+
+            <!--<div class="col-md-1">
+        <a class="btn btn-warning" href="/Admin" role="button">Düzenle</a>-->
+            @*<a href="/Admin">
+            <i class="bi bi-pencil-square"> Düzenle</i>
+        </a>*@
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+
+
+        <div class="row">
+            @Html.ActionLink("Go to home (Razor)", "Index", "Admin")
+            <a asp-action="index" asp-controller="home">Go to Index (Tag Helper)</a>
+
+        </div>
+
+
+
+</bodyx>
+</html>
+
+
