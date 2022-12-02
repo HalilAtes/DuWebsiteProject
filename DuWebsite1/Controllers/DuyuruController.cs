@@ -4,21 +4,30 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DuWebsite1.Models.ViewModels;
 
 namespace DuWebsite1.Controllers
 {
     public class DuyuruController : Controller
     {
         EFDuWebsiteRepository websiteRepository = new EFDuWebsiteRepository(new DuDbContext());
-        public int PageSize = 10;
+        public int PageSize = 3;
 
-    
-        public ActionResult Index()
-        {
-            var Duyurular = websiteRepository.Duyurular;
 
-            return View(Duyurular);
-        }
+        public ViewResult Index(int DuyuruSayfası = 1)
+            => View(new DuyuruListViewModel {
+                duyurular = websiteRepository.Duyurular
+                .OrderBy(p => p.DuyuruId)
+                .Skip((DuyuruSayfası - 1) * PageSize)
+                .Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = DuyuruSayfası,
+                    ItemsPerPage = PageSize,
+                    TotalItems = websiteRepository.Duyurular.Count()
+                }
+            });
+
 
         public ActionResult DuyuruDetay(int id)
         {
