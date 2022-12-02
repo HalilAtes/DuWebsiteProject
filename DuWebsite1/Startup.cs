@@ -73,9 +73,9 @@ namespace DuWebsite1
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("page",
-               "Page{productPage:int}",
-               new { Controller = "Home", action = "Index", productPage = 1 });
+                endpoints.MapControllerRoute("pagination",
+                    "Page/{DuyuruSayfasý}",
+                    new { Controller = "Home", action = "Index" });
 
                 // endpoints.MapControllerRoute("page",
                 //"Page{productPage:int}",

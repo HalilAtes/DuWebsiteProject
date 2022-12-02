@@ -39,9 +39,9 @@
                             <p class="mb-1">
                                 >
                                 @*@if (p.Aciklama == null)
-                                    {
-                                        @p.Aciklama
-                                    }*@
+                    {
+                        @p.Aciklama
+                    }*@
                                 @if (p.Aciklama.Length > 50)
                                 {
                                     @(p.Aciklama.Substring(0,350) + " ...") }
@@ -63,9 +63,11 @@
                         </a>
                         <hr />
                     }
+                    <div page-model="@Model.PagingInfo" page-action="Index" page-class-enabled="true" 
+                         page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group"></div>
 
                 </div>
-
+                
             </div>
             <div class="col-md-2">
 
