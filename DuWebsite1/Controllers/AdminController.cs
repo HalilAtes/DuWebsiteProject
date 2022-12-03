@@ -71,13 +71,7 @@ namespace DuWebsite1.Controllers
             return View();
         }
 
-        //[HttpGet]
-        //public ActionResult KullaniciEkle(int id)
-        //{
-        //    var user = websiteRepository.Kullanıcılar.Where(x => x.AdminId == id);
-        //    return View(user);
-
-        //}
+       
         public ActionResult KullaniciEkle()
         {
             return View();
@@ -103,13 +97,7 @@ namespace DuWebsite1.Controllers
             }
             else
                 return View();
-            //if (admin.KullaniciAdi == "user1" && admin.Sifre == "12345")
-            //{
-            //return RedirectToAction("DuyuruEdit");
-
-            //}
-            //else
-            //    return View();
+            
         }
 
         
