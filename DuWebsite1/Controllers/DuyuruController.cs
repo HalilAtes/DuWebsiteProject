@@ -11,7 +11,7 @@ namespace DuWebsite1.Controllers
     public class DuyuruController : Controller
     {
         EFDuWebsiteRepository websiteRepository = new EFDuWebsiteRepository(new DuDbContext());
-        public int PageSize = 3; 
+        public int PageSize = 4; 
 
 
         public ViewResult Index(int DuyuruSayfası = 1)
