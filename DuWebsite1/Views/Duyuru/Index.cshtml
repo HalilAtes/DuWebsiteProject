@@ -16,6 +16,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="~/assets/css/benimcss.css" rel="stylesheet" />
     <link href="~/btnTemp/BtnTemp.css" rel="stylesheet" />
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
 </head>
 
 <bodyx>
@@ -44,7 +45,7 @@
                     }*@
                                 @if (p.Aciklama.Length > 50)
                                 {
-                                    @(p.Aciklama.Substring(0,350) + " ...") }
+                                    @(p.Aciklama.Substring(0,550) + " ...") }
                                 else
                                 {
                                     @p.Aciklama
@@ -63,8 +64,8 @@
                         </a>
                         <hr />
                     }
-                    <div page-model="@Model.PagingInfo" page-action="Index" page-class-enabled="true" 
-                         page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group"></div>
+                    <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" 
+                         page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
 
                 </div>
                 
