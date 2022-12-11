@@ -17,6 +17,7 @@
     <link href="~/assets/css/benimcss.css" rel="stylesheet" />
     <link href="~/btnTemp/BtnTemp.css" rel="stylesheet" />
     <link href="~/assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/assets/css/deneme.css" rel="stylesheet" />
 </head>
 
 <bodyx>
@@ -55,7 +56,7 @@
                             &nbsp;
 
                             @*<div class="col-md-4">*@
-                            <a class="btn bi-fast-forward-btn-fill" href="/Duyuru/DuyuruDetay/@p.DuyuruId" role="button">Detay</a>
+                            <a class="btn bi-fast-forward-btn-fill pull-right" href="/Duyuru/DuyuruDetay/@p.DuyuruId" role="button">Detay</a>
 
                             @*</div>*@
 
@@ -64,8 +65,8 @@
                         </a>
                         <hr />
                     }
-                    <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" 
-                         page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+                   <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
+                         page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" page-url-category="@Model.Currentpage" class="btn-group pull-right col-md-2 align-content-center"></div>
 
                 </div>
                 

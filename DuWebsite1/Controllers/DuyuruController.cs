@@ -14,15 +14,15 @@ namespace DuWebsite1.Controllers
         public int PageSize = 4; 
 
 
-        public ViewResult Index(int DuyuruSayfası = 1)
+        public ViewResult Index(int DuyuruSayfasi = 1)
             => View(new DuyuruListViewModel {
                 duyurular = websiteRepository.Duyurular
                 .OrderBy(p => p.DuyuruId)
-                .Skip((DuyuruSayfası - 1) * PageSize)
+                .Skip((DuyuruSayfasi - 1) * PageSize)
                 .Take(PageSize),
                 PagingInfo = new PagingInfo
                 {
-                    CurrentPage = DuyuruSayfası,
+                    CurrentPage = DuyuruSayfasi,
                     ItemsPerPage = PageSize,
                     TotalItems = websiteRepository.Duyurular.Count()
                 }

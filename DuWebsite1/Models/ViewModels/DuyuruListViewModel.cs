@@ -9,5 +9,6 @@ namespace DuWebsite1.Models.ViewModels
     {
         public IEnumerable<Duyuru> duyurular { get; set; }
         public PagingInfo PagingInfo { get; set; }
+        public PagingInfo Currentpage { get; set; }
     }
 }
