@@ -1,10 +1,8 @@
-﻿@*@model DuWebsite1.Models.ViewModels.DuyuruListViewModel*@
-
-
-@model DuWebsite1.Models.ViewModels.DuyuruListViewModel
+﻿@model IQueryable<Duyuru>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @*<div>
         <h3>@p.DuyuruAdi</h3>
         @p.Aciklama
@@ -22,13 +20,13 @@
 
 <bodyx>
 
-    <div class="sinif-ortalama">
+    <div style="margin-top: 100px;" class="sinif-ortalama">
 
         <div class="row">
-            <div class="col-md-10">
+            <div style="margin-left:250px;"class="col-md-8">
 
                 <div class="list-group">
-                    @foreach (var p in Model.duyurular)
+                    @foreach (var p in Model)
                     {
                         <a class="list-group-item list-group-item-action flex-column align-items-start">
                             <div class="d-flex w-100 justify-content-between">
@@ -41,9 +39,9 @@
                             <p class="mb-1">
                                 >
                                 @*@if (p.Aciklama == null)
-                    {
-                        @p.Aciklama
-                    }*@
+                            {
+                                @p.Aciklama
+                            }*@
                                 @if (p.Aciklama.Length > 50)
                                 {
                                     @(p.Aciklama.Substring(0,550) + " ...") }
@@ -65,11 +63,18 @@
                         </a>
                         <hr />
                     }
-                   <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
-                         page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" page-url-category="@Model.Currentpage" class="btn-group pull-right col-md-2 align-content-center"></div>
+
 
                 </div>
-                
+
+
+                <!--<div class="col-md-1">
+        <a class="btn btn-warning" href="/Admin" role="button">Düzenle</a>-->
+                @*<a href="/Admin">
+                <i class="bi bi-pencil-square"> Düzenle</i>
+            </a>*@
+                <!--</div>-->
+                <!--</div>-->
             </div>
             <div class="col-md-2">
 
@@ -78,24 +83,15 @@
                 </div>
             </div>
 
-            <!--<div class="col-md-1">
-            <a class="btn btn-warning" href="/Admin" role="button">Düzenle</a>-->
-            @*<a href="/Admin">
-                    <i class="bi bi-pencil-square"> Düzenle</i>
-                </a>*@
-            <!--</div>-->
-            <!--</div>-->
-        </div>
 
-
-        <div class="row">
+            @*<div class="row">
             @Html.ActionLink("Go to home (Razor)", "Index", "Admin")
             <a asp-action="index" asp-controller="home">Go to Index (Tag Helper)</a>
 
+        </div>*@
+
+
         </div>
-
-
-
 </bodyx>
 </html>
 

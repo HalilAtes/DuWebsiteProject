@@ -4,29 +4,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DuWebsite1.Models.ViewModels;
+
 
 namespace DuWebsite1.Controllers
 {
     public class DuyuruController : Controller
     {
         EFDuWebsiteRepository websiteRepository = new EFDuWebsiteRepository(new DuDbContext());
-        public int PageSize = 4; 
+        public int PageSize = 4;
 
 
-        public ViewResult Index(int DuyuruSayfasi = 1)
-            => View(new DuyuruListViewModel {
-                duyurular = websiteRepository.Duyurular
-                .OrderBy(p => p.DuyuruId)
-                .Skip((DuyuruSayfasi - 1) * PageSize)
-                .Take(PageSize),
-                PagingInfo = new PagingInfo
-                {
-                    CurrentPage = DuyuruSayfasi,
-                    ItemsPerPage = PageSize,
-                    TotalItems = websiteRepository.Duyurular.Count()
-                }
-            });
+        public ActionResult Index()
+        {
+            var Duyurular = websiteRepository.Duyurular;
+
+            return View(Duyurular);
+        }
 
 
         public ActionResult DuyuruDetay(int id)
